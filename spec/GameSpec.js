@@ -26,5 +26,9 @@ describe('Game', function() {
       expect(game.takeTurn(0)).toEqual(false)
       expect(game.board.board[0]).toEqual('X')
     })
+
+    it('cannot choose the a square outside the grid', function() {
+      expect(game.takeTurn(12)).toEqual(false)
+    })
   })
 });

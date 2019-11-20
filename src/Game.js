@@ -15,11 +15,21 @@ class Game {
   }
 
   takeTurn(id) {
-    if (this.board.board[id].length === 1) {
+    if (this._isTurnBanned(id)) {
       return false
     } else {
       this.board.chooseSquare(id, this.checkPlayer())
       this.changePlayer()
+    }
+  }
+
+  _isTurnBanned(id) {
+    if (id > 8 || id < 0) {
+      return true
+    } else if (this.board.board[id].length === 1) {
+      return true
+    } else {
+      return false
     }
   }
 }
