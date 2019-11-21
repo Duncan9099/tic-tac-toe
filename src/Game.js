@@ -6,14 +6,6 @@ class Game {
     this.player = 'X'
   }
 
-  checkPlayer() {
-    return (this.player === 'X' ? 'X' : 'O')
-  }
-
-  changePlayer() {
-    this.player === 'X' ? this.player = 'O' : this.player = 'X'
-  }
-
   takeTurn(id) {
     if (this._isTurnBanned(id)) {
       return false
@@ -21,6 +13,14 @@ class Game {
       this.board.chooseSquare(id, this.checkPlayer())
       this.changePlayer()
     }
+  }
+
+  checkPlayer() {
+    return (this.player === 'X' ? 'X' : 'O')
+  }
+
+  changePlayer() {
+    this.player === 'X' ? this.player = 'O' : this.player = 'X'
   }
 
   _isTurnBanned(id) {
