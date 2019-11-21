@@ -8,19 +8,19 @@ describe('score', function() {
   })
 
   describe('isWon', function() {
-    xit('123 X squares set isWon as true', function() {
+    it('123 X squares set isWon as true', function() {
       let board = ['X', 'X', 'X', '','','','','','']
       score.isWon(board)
       expect(score.gameOver).toEqual(true)
     })
 
-    xit('123 X squares set isWon as true', function() {
+    it('123 X squares set isWon as true', function() {
       let board = ['X', 'O', '', 'X','','O','X','','']
       score.isWon(board)
       expect(score.gameOver).toEqual(true)
     })
 
-    xit('123 X squares set isWon as true', function() {
+    it('123 X squares set isWon as true', function() {
       let board = ['O', 'X', 'X', '','O','X','X','','O']
       score.isWon(board)
       expect(score.gameOver).toEqual(true)

@@ -4,7 +4,6 @@ class Game {
   constructor(board, score) {
     this.board = board
     this.player = 'X'
-    this.gameOver = false
     this.score = score
   }
 
@@ -13,6 +12,7 @@ class Game {
       return false
     } else {
       this.board.chooseSquare(id, this._checkPlayer())
+      this._isGameOver()
       this._changePlayer()
     }
   }
@@ -30,12 +30,15 @@ class Game {
       return true
     } else if (this.board.board[id].length === 1) {
       return true
+    } else if (this.score.gameOver === true) {
+      return true
     } else {
       return false
     }
   }
 
-  isGameOver() {
-    return (this.score.isWon(this.board.board) ? this.gameOver = true : false)
+  _isGameOver() {
+    this.score.isWon(this.board.board)
+    console.log("Game Over")
   }
 }

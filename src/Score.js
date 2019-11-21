@@ -1,6 +1,5 @@
 class Score {
   constructor() {
-    this.gameOver = false
     this.combinations = [
       [0,1,2],
       [3,4,5],
@@ -21,7 +20,7 @@ class Score {
         && board[combination[0]] !== ''
       ) {
         this.gameOver = true
-      }
+      } 
     })
   }
 

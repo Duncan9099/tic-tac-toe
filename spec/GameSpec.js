@@ -2,11 +2,13 @@
 
 describe('Game', function() {
   let board = new Board
-  let game = new Game(board)
+  let score = new Score
+  let game = new Game(board, score)
 
   beforeEach(function() {
     board = new Board
-    game = new Game(board)
+    score = new Score
+    game = new Game(board, score)
   })
 
   describe('takeTurn', function() {
@@ -39,7 +41,8 @@ describe('Game', function() {
       game.takeTurn(1)
       game.takeTurn(7)
       game.takeTurn(2)
-      expect(game.gameOver).toEqual(true)
+      expect(game.score.gameOver).toEqual(true)
+      expect(game.takeTurn(5)).toEqual(false)
     })
   })
 });
