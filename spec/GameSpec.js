@@ -31,4 +31,15 @@ describe('Game', function() {
       expect(game.takeTurn(12)).toEqual(false)
     })
   })
+
+  describe('isGameOver', function() {
+    it('sets a completed game to gameover', function() {
+      game.takeTurn(0)
+      game.takeTurn(8)
+      game.takeTurn(1)
+      game.takeTurn(7)
+      game.takeTurn(2)
+      expect(game.gameOver).toEqual(true)
+    })
+  })
 });

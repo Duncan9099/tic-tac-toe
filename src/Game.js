@@ -1,25 +1,27 @@
 'use strict';
 
 class Game {
-  constructor(board) {
+  constructor(board, score) {
     this.board = board
     this.player = 'X'
+    this.gameOver = false
+    this.score = score
   }
 
   takeTurn(id) {
     if (this._isTurnBanned(id)) {
       return false
     } else {
-      this.board.chooseSquare(id, this.checkPlayer())
-      this.changePlayer()
+      this.board.chooseSquare(id, this._checkPlayer())
+      this._changePlayer()
     }
   }
 
-  checkPlayer() {
+  _checkPlayer() {
     return (this.player === 'X' ? 'X' : 'O')
   }
 
-  changePlayer() {
+  _changePlayer() {
     this.player === 'X' ? this.player = 'O' : this.player = 'X'
   }
 
@@ -31,5 +33,9 @@ class Game {
     } else {
       return false
     }
+  }
+
+  isGameOver() {
+    return (this.score.isWon(this.board.board) ? this.gameOver = true : false)
   }
 }
